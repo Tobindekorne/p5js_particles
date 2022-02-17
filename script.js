@@ -11,6 +11,18 @@ function setup() {
 
 function windowResized() {
     resizeCanvas(window.innerWidth, window.innerHeight);
+    const adjustParticles =
+        Math.floor(window.innerWidth / 10) - particles.length;
+
+    if (adjustParticles > 0) {
+        for (let i = 0; i < adjustParticles; i++) {
+            particles.push(new Particle());
+        }
+    } else {
+        for (let i = 0; i < -adjustParticles; i++) {
+            particles.pop();
+        }
+    }
 }
 
 function draw() {
@@ -27,7 +39,7 @@ class Particle {
         this.pos = createVector(random(width), random(height));
         this.size = 5;
         this.connectionRange = 120;
-        const velFactor = 1.5;
+        const velFactor = 2;
         this.vel = createVector(
             random(-velFactor, velFactor),
             random(-velFactor, velFactor)
