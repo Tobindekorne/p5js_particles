@@ -1,0 +1,27 @@
+.root {
+    --logo-color: rgb(255, 255, 255);
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: rgb(55, 100, 144);
+}
+
+svg {
+    width: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: var(--logo-color);
+    stroke: var(--logo-color);
+    filter: drop-shadow(5px 8px 3px rgba(0, 0, 0, 0.4));
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
